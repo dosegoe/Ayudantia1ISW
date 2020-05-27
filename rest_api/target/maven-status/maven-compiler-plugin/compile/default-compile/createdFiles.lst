@@ -1,0 +1,7 @@
+rest_api\repository\MedicoRepository.class
+rest_api\service\MedicoService.class
+rest_api\entity\Medico.class
+rest_api\controller\MedicoController.class
+rest_api\model\MMedico.class
+rest_api\converter\ConvertidorMedico.class
+rest_api\RestApiApplication.class

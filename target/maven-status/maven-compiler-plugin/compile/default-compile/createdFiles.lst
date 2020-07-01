@@ -5,3 +5,4 @@ rest_api\controller\MedicoController.class
 rest_api\model\MMedico.class
 rest_api\converter\ConvertidorMedico.class
 rest_api\RestApiApplication.class
+rest_api\entity\Pabellon.class

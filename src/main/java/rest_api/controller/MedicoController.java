@@ -19,30 +19,36 @@ import rest_api.service.MedicoService;
 
 import java.util.List;
 
-
+@CrossOrigin(origins = "*")
 //esto mapea la app en requests URL->HTTP
 @RestController
+//localhost:puerto/api/medicos
 @RequestMapping("/api/medicos")
 public class MedicoController
 {
     @Autowired
     @Qualifier("ServicioMedico")
     MedicoService service;
+
     // post 1 medico, requiere un body json equivalente a la clase Medico
+    // Post localhost:puerto/api/medicos
     @PostMapping("")
-    public ResponseEntity<Medico> addMedico (@ModelAttribute @Valid Medico medico)
+    public ResponseEntity<Medico> addMedico (@RequestBody Medico medico)
     {
-        System.out.println(medico);
+
+        System.out.println(medico.getNombre());
         Medico med = service.saveOrUpdateMedico(medico);
         return new ResponseEntity<Medico>(med, HttpStatus.CREATED);
     }
     // get all medicos
+    //Get localhost:puerto/api/medicos
     @GetMapping("")
     public List<MMedico> getMedicos()
     {
         return service.listAll();
     }
     // get 1 medico by id, el parametro esta en la URL
+    //GET localhost:puerto/api/medicos/id
     @GetMapping("/{id}")
     public MMedico getMedicoById(@PathVariable("id") Long id)
     {
@@ -64,19 +70,18 @@ public class MedicoController
         return service.saveOrUpdateMedico(newmed);
     }
     // delete 1 medico, sobre su id
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}") 
     public ResponseEntity<String> deleteMedico(@PathVariable Long id)
     {
         try{
             service.deleteMedico(id);
             return new ResponseEntity<>(
             "Se borro con exito", 
-            HttpStatus.OK);
+            HttpStatus.BAD_REQUEST);
         }catch(Exception e) {
             return new ResponseEntity<>(
             "Ocurrio un error", 
             HttpStatus.BAD_REQUEST);
         }
     }
-
 }

@@ -54,7 +54,7 @@ public class PacienteController{
   }
   // get pacientes que tengan el estado definido, este es un parametro de la request
   @GetMapping("/filter")
-  public List<MPaciente> getPacientesByEstado(@RequestParamsam(value="estado") Long estado)
+  public List<MPaciente> getPacientesByEstado(@RequestParam(value="estado") Long estado)
   {
       return service.listByEstado(estado);
   }
@@ -69,7 +69,7 @@ public class PacienteController{
   }
   //update estado de paciente
   @PutMapping("/filter")
-  public Paciente updatePaciente(@RequestParamsamas(value="id") Long id, @RequestParamas(value="estado") Long estado, @RequestBody MPaciente paciente)
+  public Paciente updatePaciente(@RequestParam(value="id") Long id, @RequestParam(value="estado") Long estado, @RequestBody MPaciente paciente)
   {
       MPaciente pac = service.listOne(id);
       Paciente newpac = service.convertirmtoe(pac);

@@ -17,8 +17,9 @@ public class Paciente implements Serializable {
   public Paciente(){
   }
   public Paciente(Long id, Long idmedico, Long estado){
-    this.nombre = id
-    this.estado = estado
+    this.nombre = id;
+    this.idmedico = idmedico;
+    this.estado = estado;
   }
 
   @Id

@@ -11,8 +11,9 @@ import java.io.Serializable;
 import rest_api.entity.Paciente;
 
 @Repository("RepositoryPaciente")
-public interface PacienteRepository implements JpaRepository<Paciente, Serializable>,
-    PagingAndSortingRepository<Paciente, Serializable>{
+public interface PacienteRepository extends JpaRepository<Paciente, Serializable>,
+    PagingAndSortingRepository<Paciente, Serializable>
+    {
 
       public abstract Paciente findById(Long id);
 

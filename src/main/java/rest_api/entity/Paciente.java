@@ -25,9 +25,9 @@ public class Paciente implements Serializable {
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)
   private Long id;
-  @column(name="IdMedico")
+  @Column(name="IdMedico")
   private Long idmedico;
-  @column(name="Estado")
+  @Column(name="Estado")
   private Long estado;
 
   //GETTERS Y SETTERS

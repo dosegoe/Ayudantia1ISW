@@ -15,9 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 
-//esto define que operaciones de las definidas seran usadas 
+//esto define que operaciones de las definidas seran usadas
 @Service("ServicioMedico")
-public class MedicoService 
+public class MedicoService
 {
     @Autowired
     @Qualifier("RepositoryMedico")
@@ -29,30 +29,31 @@ public class MedicoService
 
     // request
     public List<MMedico> listAll() {
-        return convertidor.convertirLista(repositorio.findAll());
+      return convertidor.convertirLista(repositorio.findAll());
     }
 
     public MMedico listOne(Long id) {
-        return convertidor.convertir(repositorio.findById(id));
+      return convertidor.convertir(repositorio.findById(id));
     }
     public List<MMedico> listByEstado(String estado)
     {
-        return convertidor.convertirLista(repositorio.findByEstado(estado));
+      return convertidor.convertirLista(repositorio.findByEstado(estado));
     }
     //create & update
     public Medico saveOrUpdateMedico(Medico medico)
     {
-        return repositorio.save(medico);
+      //Save guarda una entidad
+      return repositorio.save(medico);
     }
     public Medico convert(MMedico medico){
-        return convertidor.convertirmtoe(medico);
+      return convertidor.convertirmtoe(medico);
     }
 
     //delete
     @Transactional
     public void deleteMedico(Long id)
     {
-        repositorio.deleteById(id);
+      repositorio.deleteById(id);
     }
 
 }

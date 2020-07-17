@@ -1,6 +1,6 @@
 package rest_api.model;
 
-import rest_api.entity.Medico;
+import rest_api.entity.Paciente;
 
 import java.io.Serializable;
 

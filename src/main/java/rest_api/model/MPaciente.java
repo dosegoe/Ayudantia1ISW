@@ -46,7 +46,7 @@ public class MPaciente implements Serializable{
       this.id = id;
   }
 
-  public void setNombre(String idmedico)
+  public void setNombre(Long idmedico)
   {
       this.idmedico = idmedico;
   }

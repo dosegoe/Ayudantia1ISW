@@ -17,7 +17,7 @@ public class Paciente implements Serializable {
   public Paciente(){
   }
   public Paciente(Long id, Long idmedico, Long estado){
-    this.nombre = id;
+    this.id = id;
     this.idmedico = idmedico;
     this.estado = estado;
   }
@@ -39,7 +39,7 @@ public class Paciente implements Serializable {
 
   public Long getIdmedico()
   {
-      return nombre;
+      return idmedico;
   }
 
   public Long getEstado()

@@ -34,7 +34,7 @@ public class PacienteController{
   public ResponseEntity<Paciente> addPaciente (@RequestBody Paciente paciente)
   {
 
-      System.out.println(paciente.getNombre());
+      System.out.println(paciente.getId());
       Paciente pacient = service.saveOrUpdatePaciente(paciente);
       return new ResponseEntity<Paciente>(pacient, HttpStatus.CREATED);
   }
@@ -63,18 +63,18 @@ public class PacienteController{
   public Paciente updatePaciente(@PathVariable Long id, @RequestBody MPaciente paciente)
   {
       MPaciente pac = service.listOne(id);
-      Paciente newpac = service.convertirmtoe(pac);
+      Paciente newpac = service.convert(pac);
       newpac.setId(id);
-      return service.saveOrUpdatePaciente(newmed);
+      return service.saveOrUpdatePaciente(newpac);
   }
   //update estado de paciente
   @PutMapping("/filter")
   public Paciente updatePaciente(@RequestParam(value="id") Long id, @RequestParam(value="estado") Long estado, @RequestBody MPaciente paciente)
   {
       MPaciente pac = service.listOne(id);
-      Paciente newpac = service.convertirmtoe(pac);
+      Paciente newpac = service.convert(pac);
       newpac.setEstado(estado);
-      return service.saveOrUpdatePaciente(newmed);
+      return service.saveOrUpdatePaciente(newpac);
   }
   // delete 1 medico, sobre su id
   @DeleteMapping("/{id}")

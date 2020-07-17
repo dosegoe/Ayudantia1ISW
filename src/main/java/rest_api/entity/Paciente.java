@@ -52,9 +52,9 @@ public class Paciente implements Serializable {
       this.id = id;
   }
 
-  public void setIdmedico(Long nombre)
+  public void setIdmedico(Long idmedico)
   {
-      this.nombre = nombre;
+      this.idmedico = idmedico;
   }
 
   public void setEstado(Long estado)

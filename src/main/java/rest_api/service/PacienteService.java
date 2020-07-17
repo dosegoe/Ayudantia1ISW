@@ -17,7 +17,7 @@ public class PacienteService{
 
   @Autowired
   @Qualifier("RepositoryPaciente")
-  private PacienteRepository repository;
+  private PacienteRepository repositorio;
 
   @Autowired
   @Qualifier("ConPaciente")

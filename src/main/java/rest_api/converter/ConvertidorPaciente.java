@@ -4,14 +4,14 @@ import java.util.List;
 import java.util.ArrayList;
 import org.springframework.stereotype.Component;
 
-import rest_api.entity.Medico;
-import rest_api.model.MMedico;
+import rest_api.entity.Paciente;
+import rest_api.model.MPaciente;
 
 @Component("ConPaciente")
 public class ConvertidorPaciente{
 
-  public <List>MPAciente convertirLista(List<Paciente> pacientes){
-    List<MPAciente> mpaciente = new ArrayList<>();
+  public List<MPaciente> convertirLista(List<Paciente> pacientes){
+    List<MPaciente> mpaciente = new ArrayList<>();
     for (Paciente paciente : pacientes){
       mpaciente.add(new MPaciente(paciente));
     }
@@ -19,11 +19,11 @@ public class ConvertidorPaciente{
   }
 
   public MPaciente convertir(Paciente paciente){
-    MPaciente mpaciente = new Mpaciente(paciente);
+    MPaciente mpaciente = new MPaciente(paciente);
     return mpaciente;
   }
 
-  public Paciente convertirmtoe(MPAciente paciente){
+  public Paciente convertirmtoe(MPaciente paciente){
       Medico  epaciente = new Paciente(paciente.getId(),paciente.getIdmedico(),paciente.getEstado());
       return epaciente;
   }
